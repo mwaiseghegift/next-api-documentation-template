@@ -3,6 +3,7 @@ import type { RenderableTreeNode } from '@markdoc/markdoc';
 
 import { useHeadings } from './use-headings';
 import { useHeadingsObserver } from './use-headings-observer';
+import Link from 'next/link';
 
 interface TableOfContentsProps {
   contents: RenderableTreeNode;
@@ -53,23 +54,23 @@ function TableOfContents(props: TableOfContentsProps) {
             {headings.map(({ id, level, title }) => {
               return (
                 <li key={id}>
-                  <a
-                    href={`#${id}`}
-                    className={`
+                  <Link href={`#${id}`} legacyBehavior>
+                    <a
+                      href={`#${id}`}
+                      className={`
                     block
                     text-sm
 
                     ${level === 2 ? 'py-2 font-medium' : 'py-1 ml-4'}
 
-                    ${
-                      currentId === id
-                        ? 'text-blue-800 hover:text-blue-900'
-                        : 'text-slate-500 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-400'
-                    }
+                    ${currentId === id
+                          ? 'text-blue-800 hover:text-blue-900'
+                          : 'text-slate-500 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-400'
+                        }
                   `}
-                  >
-                    {title}
-                  </a>
+                    >
+                      {title}
+                    </a></Link>
                 </li>
               );
             })}

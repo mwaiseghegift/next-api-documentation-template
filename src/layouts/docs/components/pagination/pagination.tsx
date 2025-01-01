@@ -18,6 +18,7 @@ function Pagination() {
       {prev?.slug && (
         <Link href={prev.slug} passHref>
           <a
+            legacyBehavior
             href={prev.slug}
             rel="previous"
             className="
@@ -100,8 +101,9 @@ function Pagination() {
       )}
 
       {next?.slug && (
-        <Link href={next.slug} passHref>
+        <Link href={next.slug} passHref legacyBehavior>
           <a
+
             href={next.slug}
             rel="next"
             className="

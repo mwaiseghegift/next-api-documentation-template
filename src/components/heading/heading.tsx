@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { HTMLAttributes } from 'react';
 
 import { HashtagIcon } from '@heroicons/react/20/solid';
+import Link from 'next/link';
 
 interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -31,48 +32,49 @@ function Heading(props: HeadingProps) {
       >
         {Component}
 
-        <a
-          href={`#${id}`}
-          aria-label="anchor"
-          className="
-            absolute
-            top-1
-            -ml-10
+        <Link href={`#${id}`} legacyBehavior>
+          <a
+            aria-label="anchor"
+            className="
+              absolute
+              top-1
+              -ml-10
 
-            flex
-            items-center
-            justify-center
+              flex
+              items-center
+              justify-center
 
-            w-6
-            h-6
+              w-6
+              h-6
 
-            text-slate-400
+              text-slate-400
 
-            ring-1
-            ring-slate-900/5
+              ring-1
+              ring-slate-900/5
 
-            bg-white
-            rounded-md
+              bg-white
+              rounded-md
 
-            outline-none
+              outline-none
 
-            opacity-0
-            group-hover:opacity-100
+              opacity-0
+              group-hover:opacity-100
 
-            focus:ring-2
-            focus:ring-blue-100
+              focus:ring-2
+              focus:ring-blue-100
 
-            hover:ring-slate-900/10
-            hover:shadow
-            hover:text-slate-700
+              hover:ring-slate-900/10
+              hover:shadow
+              hover:text-slate-700
 
-            dark:text-white
-            dark:bg-gray-600/10
-            dark:focus:ring-blue-600/50
-          "
-        >
-          <HashtagIcon width={12} height={12} />
-        </a>
+              dark:text-white
+              dark:bg-gray-600/10
+              dark:focus:ring-blue-600/50
+            "
+          >
+            <HashtagIcon width={12} height={12} />
+          </a>
+        </Link>
       </div>
     );
   }

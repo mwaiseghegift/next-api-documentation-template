@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-
 import { SelectTheme } from './select-theme';
 
 const Burger = dynamic(() => import('./burger'));

@@ -82,14 +82,13 @@ function Aside() {
                 <ul className="space-y-1">
                   {item.children?.map(({ title, slug }) => (
                     <li key={slug}>
-                      <Link href={slug} passHref>
+                      <Link href={slug} passHref legacyBehavior>
                         <a
                           href={slug}
                           // eslint don't detect ternary value?
                           // eslint-disable-next-line jsx-a11y/aria-proptypes
-                          aria-current={`${
-                            router.pathname === slug ? 'page' : 'false'
-                          }`}
+                          aria-current={`${router.pathname === slug ? 'page' : 'false'
+                            }`}
                           className="
                             flex
                             align-middle
